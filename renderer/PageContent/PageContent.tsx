@@ -12,11 +12,5 @@ export default function PageContent() {
         <Collaboration />
         <LetsWorkTogether />
         <Footer/>
-
     </>)
 }
-
-
-
-
-
