@@ -1,7 +1,7 @@
 import ImageGallery from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css";
 
-export function Collaboration () {
+export function Collaboration() {
 
   const images = [
     {
@@ -21,7 +21,9 @@ export function Collaboration () {
 
   return (
     <div className="collaboration">
-       <ImageGallery items={images} />;
+      <h2>Olivia's Triumphs</h2>
+ 
+          <ImageGallery items={images} showPlayButton={false}/>
     </div>
   )
 }
