@@ -12,9 +12,11 @@
   src: url('../fonts/SpaceGrotesk-VariableFont_wght.ttf') format('truetype');
 }
 
-body {
+body,html {
   margin: 0;
   background-color: white;
+  width: 100vw;
+  overflow-x: hidden;
 }
 
 * {
@@ -44,48 +46,7 @@ p {
 }
 
 
-#navbar {
-  background-color: #F8961E;
-  padding: 86px 0 113px 0;
 
-  .navbar-content {
-    width: 1100px;
-    margin: 0 auto;
-
-    .menu{
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: flex-start;
-      a {
-        display: inline-block;
-        padding: 10px;
-        color: black;
-        font-size: 16px;
-        font-family: ContentFont, sans-serif;
-        text-decoration: none;
-  
-        cursor: pointer;
-
-        &:hover{
-          text-decoration: underline;
-        }
-  
-        &.is-active {
-          background-color: rgba(255, 0, 0, 0.1);
-          padding: 4px 8px 16px 8px;
-        }
-  
-        &:last-of-type {
-      
-          text-align: end;
-        }
-      }
-    }
-
-
-  }
-}
 
 #page-container {
   display: flex;
