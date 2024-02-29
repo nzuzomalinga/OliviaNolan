@@ -1,4 +1,10 @@
-// @import "~react-image-gallery/tyles/scss/image-gallery.scss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
 
 @font-face {
   font-family: 'HeadingFont'; // Replace with your desired font-family name
@@ -12,11 +18,46 @@
   src: url('../fonts/SpaceGrotesk-VariableFont_wght.ttf') format('truetype');
 }
 
-body,html {
+body,
+html {
   margin: 0;
   background-color: white;
   width: 100vw;
   overflow-x: hidden;
+
+  /* Define the styles for the scrollbar */
+  ::-webkit-scrollbar {
+    width: 12px;
+    /* Set the width of the scrollbar */
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background-color: #4CAF50;
+    /* Set the color of the scrollbar handle */
+    border-radius: 6px;
+    /* Round the corners of the handle */
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    /* Set the color of the scrollbar track */
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #45a049;
+    /* Change the color of the handle on hover */
+  }
+
+  /* Add some animation to the handle */
+  ::-webkit-scrollbar-thumb:active {
+    background: #4CAF50;
+    /* Change the color of the handle when active (clicked) */
+    transition: background 0.3s ease;
+  }
+
 }
 
 * {

@@ -1,6 +1,6 @@
 #navbar {
     background-color: #F8961E;
-    padding: 86px 0 113px 0;
+    padding: 100px 0 100px 0;
     width: 100vw;
 
     .navbar-content {
@@ -41,37 +41,61 @@
             }
         }
 
-        .Typewriter {
-            height: 50px;
-            max-width: auto;
-            position: relative;
-            background-color: #F94144;
-            box-shadow: rgba(240, 46, 170, 0.4) 0px 5px, rgba(240, 46, 170, 0.3) 0px 10px, rgba(240, 46, 170, 0.2) 0px 15px, rgba(240, 46, 170, 0.1) 0px 20px, rgba(240, 46, 170, 0.05) 0px 25px;
+        .website-title {
+            height: 103px;
 
-            .title-wrapper {
-                h1 {
-                    width: unset !important;
-                }
+            span {
+                color: black;
+                font-family: HeadingFont, sans-serif;
+                font-size: 103px;
+                margin: 0;
             }
 
             .cursor {
-                display: none;
-                visibility: hidden;
+                height: 70px;
+                background-color: black;
             }
 
-        
+            @media only screen and (max-width: 768px) {
+
+                height: 80px;
+                width: 300px;
+                text-align: center;
+                margin: 0 auto;
+                padding-left: 20px;
+
+                span {
+                    font-size: 40px;
+                    margin: 0;
+                    padding: 0;
+                    line-height: 1.2;
+                    
+                }
+                .red{
+                    color: #F94144;
+                }
+
+                .cursor {
+                    background-color: transparent;
+                    height: 0;
+                }
+            }
         }
 
 
 
+
     }
+
     @media only screen and (max-width: 768px) {
         margin: 0;
         padding: 20px 0 20px 0;
         width: unset;
-        .navbar-content{
+
+        .navbar-content {
             width: unset;
-            .Typewriter{
+
+            .Typewriter {
                 height: 30px;
                 background-color: transparent;
 
@@ -105,7 +129,7 @@
 
     @media only screen and (max-width: 768px) {
         /* Styles for tablets and smaller devices */
-        padding: 80px 0 40px 20px ;
+        padding: 80px 0 40px 20px;
         width: unset;
         flex-direction: column;
         align-items: flex-start;
@@ -137,12 +161,14 @@
 
         h2 {
             font-size: 34px;
+            margin: 0
         }
 
         p {
             font-size: 20px;
             width: 100%;
             color: white;
+            padding: 20px 0 0 0;
         }
 
         img {
@@ -181,6 +207,42 @@
 
 }
 
+.collaboration {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #F8961E;
+
+
+    .image-grid {
+        width: 1100px;
+        margin: 0 auto;
+        padding: 0px 0 100px 0;
+    }
+
+    h2 {
+        width: 1100px;
+        margin: 0 auto;
+        padding: 100px 0 20px 0;
+
+    }
+
+    @media only screen and (max-width: 768px) {
+        h2 {
+            font-size: 30px;
+            margin: unset;
+            width: 350px;
+            padding: 40px 0 20px 20px;
+        }
+
+        .image-grid {
+            width: 100%;
+            padding: 0px 20px 80px 20px;
+        }
+
+    }
+}
+
 .lets-work-together {
 
     background-color: #90BE6D;
@@ -190,8 +252,9 @@
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+        gap: 100px;
         width: 1100px;
-        margin: 80px auto 80px auto;
+        margin: 100px auto 100px auto;
 
         .left {
 
@@ -201,7 +264,7 @@
             }
 
             p {
-                margin: 0;
+                margin: 20px 0 0 0;
             }
         }
 
@@ -278,6 +341,7 @@
     }
 }
 
+
 .footer {
     display: flex;
     justify-content: center;
@@ -308,6 +372,31 @@
             color: white;
             font-size: 20px;
         }
+
+    }
+}
+
+.feedback-widget {
+    position: fixed;
+    z-index: 10;
+    bottom: 60px;
+    right: 60px;
+
+    button {
+        width: 80px;
+        height: 80px;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        background-image: url('/png/lightbulb.png');
+        background-size: contain; // You can also use 'contain' or other background-size properties
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    @media only screen and (max-width: 768px) {
+        bottom: 20px;
+        right: 20px;
 
     }
 }
