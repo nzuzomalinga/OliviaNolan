@@ -8,8 +8,8 @@ import { Services } from './Sections/Services'
 export default function PageContent() {
     return (<>
         <PageDescription />
-        <Services />
         <Collaboration />
+        <Services />
         <LetsWorkTogether />
         <Footer/>
     </>)

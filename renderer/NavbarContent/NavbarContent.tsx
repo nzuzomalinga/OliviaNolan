@@ -1,15 +1,51 @@
-import { Link } from "../Link";
+import { TypewriterEffect } from '../PageContent/Sections/Components/TypewritterEffect';
 
 export default function NavbarContent() {
+
+  const words = [
+    {
+      text: "OLIVIA",
+    },
+    {
+      text:"NOLAN",
+      className:"red"
+    }
+
+  ];
+  const scrollToSection = (section:string) => {
+    let scrollPoint;
+
+    if (window.innerWidth <= 768) {
+      // Mobile scroll points
+      if (section === "home") {
+        scrollPoint = 0;
+      } else if (section === "work") {
+        scrollPoint = 3800;
+      } else {
+        scrollPoint = 550;
+      }
+    } else {
+      // Desktop scroll points
+      if (section === "home") {
+        scrollPoint = 0;
+      } else if (section === "work") {
+        scrollPoint = 2400;
+      } else {
+        scrollPoint = 630;
+      }
+    }
+
+    window.scrollTo({ behavior: 'smooth', top: scrollPoint });
+  };
+
   return (
     <div className="navbar-content">
       <div className="menu">
-        <Link href="/" children={"Home"} />
-        <Link href="/lets-work-together" children={"Let Work Together"} />
-        <Link href="/gallery" children={"Gallery"} />
+        <button onClick={() => scrollToSection('home')}>Home</button>
+        <button onClick={() => scrollToSection('work')}>Let Work Together</button>
+        <button onClick={() => scrollToSection('gallery')}>Gallery</button>
       </div>
-
-      <h1>OLIVIA NOLAN</h1>
+   <TypewriterEffect words={words} className='website-title' cursorClassName='cursor' />
     </div>
   )
 }

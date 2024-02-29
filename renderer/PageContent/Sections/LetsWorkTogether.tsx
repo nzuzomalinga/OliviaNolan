@@ -21,12 +21,14 @@ export function LetsWorkTogether() {
         console.log('Form data submitted:', formData);
     };
 
+    const copy = "Reach out to Olivia Nolan for a tailored approach to elevate your brand, events, or social causes with her expertise in marketing, communication, party entertainment, and impactful humanitarian collaboration."
+
     return (
         <div className="lets-work-together">
             <div className="form-section">
                 <div className="left">
                     <h2 className="sub-heading">Let's Work Together</h2>
-                    <p className="text">Contact me for any of your professional needs</p>
+                    <p className="text">{copy}</p>
                 </div>
                 <div className="right">
                     <form onSubmit={handleSubmit}>

@@ -6,31 +6,24 @@ import type { PageContext } from 'vike/types'
 import './scss/PageShell.scss'
 import NavbarContent from './NavbarContent/NavbarContent'
 import PageContent from './PageContent/PageContent'
+import { FeedbackFish } from '@feedback-fish/react'
 
 function PageShell({ children, pageContext }: { children: React.ReactNode; pageContext: PageContext }) {
-
-  useEffect(() => {
-    // Your scroll logic here
-    // Example: Scroll to the top of the page
-    if(pageContext.urlOriginal === "/contact"){
-      window.scrollTo({ top: 1400, behavior: 'smooth' });
-    }
- 
-
-    // You can also add different scroll animations here
-    // Example: Using react-scroll library
-    // scrollToElement('elementId', { duration: 500, smooth: 'easeInOutQuint' });
-  }, [pageContext.urlOriginal]);
 
   return (
     <React.StrictMode>
       <PageContextProvider pageContext={pageContext}>
-        <Layout>
+     
+      <Layout>
           <Navbar>
            <NavbarContent/>
           </Navbar>
+
           <Content>{children}</Content>
+          <FeedbackWidget/>
         </Layout>
+
+     
       </PageContextProvider>
     </React.StrictMode>
   )
@@ -43,6 +36,16 @@ function Layout({ children }: { children: React.ReactNode }) {
     </div>
   )
 }
+
+function FeedbackWidget() {
+  return (<div className="feedback-widget">
+   <FeedbackFish projectId='11d067c3552d93'>
+    <button></button>
+    </FeedbackFish>
+  </div>
+  )
+}
+
 
 function Navbar({ children }: { children: React.ReactNode }) {
   return (
