@@ -6,6 +6,7 @@ export default function NavbarContent() {
     {
       text: "OLIVIA",
     },
+    
     {
       text:"NOLAN",
       className:"red"
