@@ -1,5 +1,5 @@
 
-import { useState, useRef, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { cn } from "../../../../utils/cn";
 
@@ -25,48 +25,58 @@ export const ImageGrid = ({ cards }: { cards: Card[] }) => {
   };
 
   return (<section id="gallery" className="image-grid h-full grid grid-cols-1 md:grid-cols-3 gap-4 ">
-      {cards.map((card, i) => (
-        <div key={i} className={cn(card.className, "")}>
-          <motion.div
-            onClick={() => handleClick(card)}
-            className={cn(
-              card.className,
-              "relative overflow-hidden",
-              selected?.id === card.id
-                ? "rounded-lg cursor-pointer absolute inset-0 h-1/2 w-full md:w-1/2 m-auto z-50 flex justify-center items-center flex-wrap flex-col"
-                : lastSelected?.id === card.id
+    {cards.map((card, i) => (
+      <div key={i} className={cn(card.className, "")}>
+        <motion.div
+          onClick={() => handleClick(card)}
+          className={cn(
+            card.className,
+            "relative overflow-hidden",
+            selected?.id === card.id
+              ? "rounded-lg cursor-pointer absolute inset-0 h-1/2 w-full md:w-1/2 m-auto z-50 flex justify-center items-center flex-wrap flex-col"
+              : lastSelected?.id === card.id
                 ? "z-40 bg-white rounded-xl h-full w-full"
                 : "bg-white rounded-xl h-full w-full"
-            )}
-           
-            layout
-          >
-            {selected?.id === card.id && <SelectedCard selected={selected} />}
-            <BlurImage card={card} />
-          </motion.div>
-        </div>
-      ))}
-      <motion.div
-        onClick={handleOutsideClick}
-        className={cn(
-          "absolute h-full w-full left-0 top-0 bg-black opacity-0 z-10",
-          selected?.id ? "pointer-events-auto" : "pointer-events-none"
-        )}
-        animate={{ opacity: selected?.id ? 0.3 : 0 }}
-      />
-    </section>
+          )}
+
+          layout
+        >
+          {selected?.id === card.id && <SelectedCard selected={selected} />}
+          <BlurImage card={card} />
+        </motion.div>
+      </div>
+    ))}
+    <motion.div
+      onClick={handleOutsideClick}
+      className={cn(
+        "absolute h-full w-full left-0 top-0 bg-black opacity-0 z-10",
+        selected?.id ? "pointer-events-auto" : "pointer-events-none"
+      )}
+      animate={{ opacity: selected?.id ? 0.3 : 0 }}
+    />
+  </section>
 
   );
 };
 
 const BlurImage = ({ card }: { card: Card }) => {
   const [loaded, setLoaded] = useState(false);
+
+  useEffect(() => {
+    
+    setTimeout(() => {
+      if (!loaded) {
+        setLoaded(true)
+      }
+    }, 500);
+
+  }, [loaded])
+
   return (
     <img
       src={card.thumbnail}
       height="500"
       width="500"
-      onLoad={() => setLoaded(true)}
       className={cn(
         "object-cover object-top absolute inset-0 h-full w-full transition duration-200",
         loaded ? "blur-none" : "blur-md"
