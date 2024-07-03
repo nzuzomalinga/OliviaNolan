@@ -1,5 +1,5 @@
 # OliviaNolan
-Portfolio website for my friend
+Portfolio website
 
 # Initialize Project
 ``` bun install ```
